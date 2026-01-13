@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="messages" target-language="nl">
+    <header/>
+    <body>
+      <trans-unit id="crdate" approved="yes">
+        <source>Creation date</source>
+        <target state="final">Aanmaakdatum</target>
+      </trans-unit>
+      <trans-unit id="tstamp" approved="yes">
+        <source>Change date</source>
+        <target state="final">Wijzigingsdatum</target>
+      </trans-unit>
+      <trans-unit id="full_salutation">
+        <source>Full salutation (possibly with name)</source>
+        <target state="needs-translation">Full salutation (possibly with name)</target>
+      </trans-unit>
+      <trans-unit id="gender" approved="yes">
+        <source>Gender</source>
+        <target state="final">Dhr./Mevr.</target>
+      </trans-unit>
+      <trans-unit id="gender.99">
+        <source>(none provided)</source>
+        <target state="needs-translation">(none provided)</target>
+      </trans-unit>
+      <trans-unit id="gender.0" approved="yes">
+        <source>Mr.</source>
+        <target state="final">Dhr.</target>
+      </trans-unit>
+      <trans-unit id="gender.1" approved="yes">
+        <source>Mrs.</source>
+        <target state="final">Mevr.</target>
+      </trans-unit>
+      <trans-unit id="gender.2">
+        <source>diverse</source>
+        <target state="needs-translation">diverse</target>
+      </trans-unit>
+      <trans-unit id="dateOfBirth" approved="yes">
+        <source>Birth date</source>
+        <target state="final">Geboortedatum</target>
+      </trans-unit>
+      <trans-unit id="zone" approved="yes">
+        <source>State/province</source>
+        <target state="final">Provincie</target>
+      </trans-unit>
+      <trans-unit id="privacy" approved="yes">
+        <source>Privacy agreement</source>
+        <target state="final">Privacy overeenkomst</target>
+      </trans-unit>
+      <trans-unit id="privacyDateOfAcceptance">
+        <source>Privacy agreement acknowledged at</source>
+        <target state="needs-translation">Privacy agreement acknowledged at</target>
+      </trans-unit>
+      <trans-unit id="terms_acknowledged">
+        <source>Terms acknowledged</source>
+        <target state="needs-translation">Terms acknowledged</target>
+      </trans-unit>
+      <trans-unit id="termsDateOfAcceptance">
+        <source>Terms acknowledged at</source>
+        <target state="needs-translation">Terms acknowledged at</target>
+      </trans-unit>
+      <trans-unit id="status" approved="yes">
+        <source>Job status</source>
+        <target state="final">Arbeidsstatus</target>
+      </trans-unit>
+      <trans-unit id="status.1">
+        <source>Student</source>
+        <target state="needs-translation">Student</target>
+      </trans-unit>
+      <trans-unit id="status.2">
+        <source>Job seeking (full time)</source>
+        <target state="needs-translation">Job seeking (full time)</target>
+      </trans-unit>
+      <trans-unit id="status.3" approved="yes">
+        <source>Working</source>
+        <target state="final">Werkend</target>
+      </trans-unit>
+      <trans-unit id="status.4" approved="yes">
+        <source>Retired</source>
+        <target state="final">Met pensioen</target>
+      </trans-unit>
+      <trans-unit id="status.5">
+        <source>Job seeking (part time)</source>
+        <target state="needs-translation">Job seeking (part time)</target>
+      </trans-unit>
+      <trans-unit id="comments" approved="yes">
+        <source>Comments</source>
+        <target state="final">Opmerkingen</target>
+      </trans-unit>
+      <trans-unit id="vatIn" approved="yes">
+        <source>VAT identification number (VATIN)</source>
+        <target state="final">Btw-nummer (Btw-nr.)</target>
+      </trans-unit>
+      <trans-unit id="department" approved="yes">
+        <source>Department</source>
+        <target state="final">Afdeling</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
