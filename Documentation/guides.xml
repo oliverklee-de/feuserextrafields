@@ -5,8 +5,8 @@
     <extension class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
                project-home="https://extensions.typo3.org/extension/feuserextrafields"
                project-contact="mailto:typo3-coding@oliverklee.de"
-               project-repository="https://github.com/oliverklee/ext-feuserextrafields"
-               project-issues="https://github.com/oliverklee/ext-feuserextrafields/issues" edit-on-github-branch="main"
+               project-repository="https://github.com/oliverklee-de/feuserextrafields"
+               project-issues="https://github.com/oliverklee-de/feuserextrafields/issues" edit-on-github-branch="main"
                edit-on-github="oliverklee/ext-feuserextrafields" typo3-core-preferred="stable"
                interlink-shortcode="oliverklee/feuserextrafields"/>
     <project title="feuserextrafields" release="6.5.1" version="6.5" copyright="2026"/>
