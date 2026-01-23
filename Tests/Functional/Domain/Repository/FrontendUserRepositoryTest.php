@@ -112,6 +112,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertEquals(new \DateTime('2022-04-02T00:00'), $model->getDateOfBirth());
         self::assertSame(FrontendUser::STATUS_JOB_SEEKING_FULL_TIME, $model->getStatus());
         self::assertSame('Here we go!', $model->getComments());
+        self::assertSame('TB-303', $model->getMembershipNumber());
     }
 
     /**

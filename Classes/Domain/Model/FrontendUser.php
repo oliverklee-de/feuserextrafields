@@ -213,6 +213,11 @@ class FrontendUser extends AbstractEntity
      */
     protected string $comments = '';
 
+    /**
+     * @Extbase\Validate("StringLength", options={"maximum": 8})
+     */
+    protected string $membershipNumber = '';
+
     public function __construct(string $username = '', string $password = '')
     {
         $this->username = $username;
@@ -652,5 +657,15 @@ class FrontendUser extends AbstractEntity
     public function setComments(string $comments): void
     {
         $this->comments = $comments;
+    }
+
+    public function getMembershipNumber(): string
+    {
+        return $this->membershipNumber;
+    }
+
+    public function setMembershipNumber(string $membershipNumber): void
+    {
+        $this->membershipNumber = $membershipNumber;
     }
 }

@@ -12,6 +12,12 @@ fields to the FE users table:
 *  :php:`gender` (with the mappings from `sr_feuser_register`)
 *  :php:`date_of_birth`
 *  :php:`zone` (state/province)
+*  :php:`department`
+*  :php:`vat_in`
+*  :php:`membership_number`
 *  :php:`privacy` (privacy agreement accepted)
+*  :php:`privacy_date_of_acceptance`
+*  :php:`terms_acknowledged`
+*  :php:`terms_date_of_acceptance`
 *  :php:`status` (job status)
 *  :php:`comments`

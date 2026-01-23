@@ -110,6 +110,17 @@ call_user_func(static function (): void {
                 'default' => '',
             ],
         ],
+        'membership_number' => [
+            'exclude' => true,
+            'label' => $languageFile . 'membership_number',
+            'config' => [
+                'type' => 'input',
+                'size' => 8,
+                'max' => 8,
+                'eval' => 'trim',
+                'default' => '',
+            ],
+        ],
         'privacy' => [
             'exclude' => true,
             'label' => $languageFile . 'privacy',
@@ -305,7 +316,7 @@ call_user_func(static function (): void {
     );
     ExtensionManagementUtility::addToAllTCAtypes(
         'fe_users',
-        'department, vat_in',
+        'department, vat_in, membership_number',
         '',
         'after:company',
     );

@@ -941,4 +941,23 @@ final class FrontendUserTest extends UnitTestCase
 
         self::assertSame($expected, $this->subject->getDisplayName());
     }
+
+    /**
+     * @test
+     */
+    public function getMembershipNumberInitiallyReturnsEmptyString(): void
+    {
+        self::assertSame('', $this->subject->getMembershipNumber());
+    }
+
+    /**
+     * @test
+     */
+    public function setMembershipNumberSetsMembershipNumber(): void
+    {
+        $value = 'TR-808';
+        $this->subject->setMembershipNumber($value);
+
+        self::assertSame($value, $this->subject->getMembershipNumber());
+    }
 }
