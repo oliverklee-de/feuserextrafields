@@ -72,6 +72,9 @@
       <trans-unit id="department">
         <source>Department</source>
       </trans-unit>
+      <trans-unit id="membership_number">
+        <source>Membership number</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
