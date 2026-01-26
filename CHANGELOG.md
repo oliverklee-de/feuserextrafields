@@ -7,17 +7,23 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Add `FrontendUser.membershipNumber` (#894)
-
 ### Changed
-
-- Require the latest TYPO3 12LTS security release (#896)
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+## 6.7.0: Add membership number field
+
+### Added
+
+- Add `FrontendUser.membershipNumber` (#894)
+
+### Changed
+
+- Require the latest TYPO3 12LTS security release (#896)
 
 ## 6.6.0: Add department field
 
