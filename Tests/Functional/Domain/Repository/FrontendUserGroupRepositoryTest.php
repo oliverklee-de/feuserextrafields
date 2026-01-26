@@ -195,6 +195,6 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         $this->subject->add($group);
         $this->subject->persistAll();
 
-        $this->assertCSVDataSet(__DIR__ . '/Fixtures/CreatedUserGroup.csv');
+        $this->assertCSVDataSet(__DIR__ . '/Assertions/CreatedUserGroup.csv');
     }
 }

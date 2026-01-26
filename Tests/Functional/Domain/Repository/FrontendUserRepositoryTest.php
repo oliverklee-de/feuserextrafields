@@ -192,7 +192,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         $this->subject->add($user);
         $this->subject->persistAll();
 
-        $this->assertCSVDataSet(__DIR__ . '/Fixtures/CreatedUser.csv');
+        $this->assertCSVDataSet(__DIR__ . '/Assertions/CreatedUser.csv');
     }
 
     /**
@@ -279,7 +279,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         $this->subject->add($user);
         $this->persistenceManager->persistAll();
 
-        $this->assertCSVDataSet(__DIR__ . '/Fixtures/CreatedUserOnPage.csv');
+        $this->assertCSVDataSet(__DIR__ . '/Assertions/CreatedUserOnPage.csv');
     }
 
     /**
