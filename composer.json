@@ -26,7 +26,7 @@
 		"typo3/cms-extbase": "^11.5.41 || ^12.4.41"
 	},
 	"require-dev": {
-		"ergebnis/composer-normalize": "2.48.2",
+		"ergebnis/composer-normalize": "2.49.0",
 		"friendsofphp/php-cs-fixer": "3.93.0",
 		"phpstan/extension-installer": "1.4.3",
 		"phpstan/phpstan": "1.12.28",
@@ -68,8 +68,8 @@
 			"typo3/cms-composer-installers": true
 		},
 		"audit": {
-			"block-abandoned": false,
-			"block-insecure": false
+			"block-insecure": false,
+			"block-abandoned": false
 		},
 		"lock": false,
 		"preferred-install": {
