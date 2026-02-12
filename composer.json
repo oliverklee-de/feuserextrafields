@@ -99,7 +99,7 @@
 		],
 		"check:coverage:functional": [
 			"@coverage:create-directories",
-			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml --whitelist Classes --coverage-php=\".Build/coverage/{}.cov\" {}';"
+			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml --whitelist Classes --coverage-php=\".Build/coverage/{}.cov\" {}';"
 		],
 		"check:coverage:merge": [
 			"@coverage:create-directories",
@@ -107,7 +107,7 @@
 		],
 		"check:coverage:unit": [
 			"@coverage:create-directories",
-			".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
+			".Build/vendor/bin/phpunit -c Build/phpunit/UnitTests.xml --whitelist Classes --coverage-php=.Build/coverage/unit.cov Tests/Unit"
 		],
 		"check:dynamic": [
 			"@check:tests"
@@ -138,11 +138,11 @@
 		"check:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
 		"check:tests:functional": [
 			"@check:tests:create-directories",
-			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml {}';"
+			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml {}';"
 		],
 		"check:tests:unit": [
 			"@check:tests:create-directories",
-			".Build/vendor/bin/phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xml Tests/Unit"
+			".Build/vendor/bin/phpunit -c Build/phpunit/UnitTests.xml Tests/Unit"
 		],
 		"check:xliff:lint": "php Build/bin/console lint:xliff Resources/Private/Language",
 		"check:yaml:lint": "find . ! -path '*.Build/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/vendor/bin/yaml-lint",
