@@ -6,6 +6,7 @@ namespace OliverKlee\FeUserExtraFields\Tests\Functional\Domain\Repository;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
 use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistInterface;
+use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistTrait;
 use OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserGroupRepository;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;

@@ -8,6 +8,7 @@ use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
 use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
 use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistInterface;
+use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistTrait;
 use OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserRepository;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
