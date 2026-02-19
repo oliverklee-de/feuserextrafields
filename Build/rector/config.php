@@ -82,7 +82,7 @@ return RectorConfig::configure()
         Typo3LevelSetList::UP_TO_TYPO3_11,
         // Typo3LevelSetList::UP_TO_TYPO3_12,
 
-        // TYPO3TestingFrameworkSetList::TYPO3_TESTING_FRAMEWORK_7,
+        TYPO3TestingFrameworkSetList::TYPO3_TESTING_FRAMEWORK_7,
     ])
     // To have a better analysis from PHPStan, we teach it here some more things
     ->withPHPStanConfigs([
