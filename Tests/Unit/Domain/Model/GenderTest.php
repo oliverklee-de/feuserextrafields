@@ -6,6 +6,8 @@ namespace OliverKlee\FeUserExtraFields\Tests\Unit\Domain\Model;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -13,33 +15,25 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 final class GenderTest extends UnitTestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function maleReturnsValueForMale(): void
     {
         self::assertSame(FrontendUser::GENDER_MALE, Gender::male());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function femaleReturnsValueForFemale(): void
     {
         self::assertSame(FrontendUser::GENDER_FEMALE, Gender::female());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function diverseReturnsValueForDiverse(): void
     {
         self::assertSame(FrontendUser::GENDER_DIVERSE, Gender::diverse());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function notProvidedReturnsValueForNotProvided(): void
     {
         self::assertSame(FrontendUser::GENDER_NOT_PROVIDED, Gender::notProvided());
@@ -58,11 +52,8 @@ final class GenderTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider validGenderDataProvider
-     */
+    #[DataProvider('validGenderDataProvider')]
+    #[Test]
     public function allExistingGendersAreValid(?int $gender): void
     {
         self::assertTrue(Gender::isValidGender($gender));
@@ -80,11 +71,8 @@ final class GenderTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider invalidGenderDataProvider
-     */
+    #[DataProvider('invalidGenderDataProvider')]
+    #[Test]
     public function invalidGenderValuesAreInvalid(int $gender): void
     {
         self::assertFalse(Gender::isValidGender($gender));

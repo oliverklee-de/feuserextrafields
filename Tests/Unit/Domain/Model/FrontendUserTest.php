@@ -6,14 +6,15 @@ namespace OliverKlee\FeUserExtraFields\Tests\Unit\Domain\Model;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
-/**
- * @covers \OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser
- */
+#[CoversClass(FrontendUser::class)]
 final class FrontendUserTest extends UnitTestCase
 {
     private FrontendUser $subject;
@@ -25,25 +26,19 @@ final class FrontendUserTest extends UnitTestCase
         $this->subject = new FrontendUser();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isAbstractEntity(): void
     {
         self::assertInstanceOf(AbstractEntity::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPidInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getPid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setPidSetsPid(): void
     {
         $value = 123456;
@@ -52,17 +47,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getPid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCreationDateInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getCreationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCreationDateSetsCreationDate(): void
     {
         $date = new \DateTime();
@@ -72,17 +63,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($date, $this->subject->getCreationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getModificationDateInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getModificationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setModificationDateSetsModificationDate(): void
     {
         $date = new \DateTime();
@@ -92,9 +79,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($date, $this->subject->getModificationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getUsernameInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getUsername();
@@ -102,9 +87,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setUsernameSetsUsername(): void
     {
         $username = 'don.juan';
@@ -114,9 +97,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($username, $this->subject->getUsername());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPasswordInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getPassword();
@@ -124,9 +105,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setPasswordSetsPassword(): void
     {
         $password = 'f00Bar';
@@ -136,9 +115,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($password, $this->subject->getPassword());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getUserGroupInitiallyReturnsEmptyStorage(): void
     {
         $result = $this->subject->getUserGroup();
@@ -147,9 +124,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertCount(0, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setUserGroupSetsUserGroups(): void
     {
         /** @var ObjectStorage<FrontendUserGroup> $groups */
@@ -161,9 +136,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($groups, $this->subject->getUserGroup());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addUserGroupAddsUserGroup(): void
     {
         $group = new FrontendUserGroup('foo');
@@ -173,9 +146,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertTrue($this->subject->getUserGroup()->contains($group));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function removeUserGroupRemovesUserGroup(): void
     {
         $group = new FrontendUserGroup('foo');
@@ -187,9 +158,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertFalse($this->subject->getUserGroup()->contains($group));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getNameInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getName();
@@ -197,9 +166,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setNameSetsName(): void
     {
         $name = 'don juan';
@@ -209,9 +176,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($name, $this->subject->getName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getFirstNameInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getFirstName();
@@ -219,9 +184,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setFirstNameSetsFirstName(): void
     {
         $firstName = 'don';
@@ -231,9 +194,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($firstName, $this->subject->getFirstName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getMiddleNameInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getMiddleName();
@@ -241,9 +202,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setMiddleNameSetsMiddleName(): void
     {
         $middleName = 'miguel';
@@ -253,9 +212,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($middleName, $this->subject->getMiddleName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLastNameInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getLastName();
@@ -263,9 +220,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setLastNameSetsLastName(): void
     {
         $lastName = 'juan';
@@ -275,9 +230,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($lastName, $this->subject->getLastName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getAddressInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getAddress();
@@ -285,9 +238,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setAddressSetsAddress(): void
     {
         $address = 'foobar 42, foo';
@@ -297,9 +248,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($address, $this->subject->getAddress());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTelephoneInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getTelephone();
@@ -307,9 +256,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTelephoneSetsTelephone(): void
     {
         $telephone = '42';
@@ -319,9 +266,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($telephone, $this->subject->getTelephone());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getEmailInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getEmail();
@@ -329,9 +274,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setEmailSetsEmail(): void
     {
         $email = 'don.juan@example.com';
@@ -341,9 +284,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($email, $this->subject->getEmail());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getValidEmailForEmptyEmailThrowsException(): void
     {
         $this->subject->setEmail('');
@@ -355,9 +296,7 @@ final class FrontendUserTest extends UnitTestCase
         $this->subject->getValidEmail();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getValidEmailForInvalidEmailThrowsException(): void
     {
         $this->subject->setEmail('Better caul Saul.');
@@ -369,9 +308,7 @@ final class FrontendUserTest extends UnitTestCase
         $this->subject->getValidEmail();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getValidEmailForValidEmailReturnsEmail(): void
     {
         $email = 'oli@example.com';
@@ -382,9 +319,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($email, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getTitle();
@@ -392,9 +327,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTitleSetsTitle(): void
     {
         $title = 'foobar';
@@ -404,9 +337,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($title, $this->subject->getTitle());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getZipInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getZip();
@@ -414,9 +345,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setZipSetsZip(): void
     {
         $zip = '42123';
@@ -426,9 +355,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($zip, $this->subject->getZip());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCityInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getCity();
@@ -436,9 +363,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCitySetsCity(): void
     {
         $city = 'foo';
@@ -448,9 +373,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($city, $this->subject->getCity());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCountryInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getCountry();
@@ -458,9 +381,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCountrySetsCountry(): void
     {
         $country = 'foo';
@@ -470,9 +391,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($country, $this->subject->getCountry());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getWwwInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getWww();
@@ -480,9 +399,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setWwwSetsWww(): void
     {
         $www = 'foo.bar';
@@ -492,9 +409,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($www, $this->subject->getWww());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCompanyInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getCompany();
@@ -502,9 +417,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCompanySetsCompany(): void
     {
         $company = 'foo bar';
@@ -514,17 +427,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($company, $this->subject->getCompany());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDepartmentInitiallyReturnsEmptyString(): void
     {
         self::assertSame('', $this->subject->getDepartment());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDepartmentSetsDepartment(): void
     {
         $value = 'Macrodata refinement';
@@ -533,17 +442,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getDepartment());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getVatInInitiallyReturnsEmptyString(): void
     {
         self::assertSame('', $this->subject->getVatIn());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setVatInSetsVatIn(): void
     {
         $value = 'DE987654321';
@@ -552,9 +457,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getVatIn());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getImageInitiallyReturnsEmptyCollection(): void
     {
         $result = $this->subject->getImage();
@@ -563,9 +466,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertCount(0, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setImageSetsImage(): void
     {
         /** @var ObjectStorage<FileReference> $images */
@@ -576,9 +477,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($images, $this->subject->getImage());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLastLoginInitiallyReturnsNull(): void
     {
         $result = $this->subject->getLastLogin();
@@ -586,9 +485,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertNull($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setLastLoginSetsLastLogin(): void
     {
         $date = new \DateTime();
@@ -612,12 +509,10 @@ final class FrontendUserTest extends UnitTestCase
     }
 
     /**
-     * @test
-     *
      * @param FrontendUser::GENDER_* $gender
-     *
-     * @dataProvider validGenderDataProvider
      */
+    #[DataProvider('validGenderDataProvider')]
+    #[Test]
     public function allGenderConstantsAreValid(int $gender): void
     {
         // @phpstan-ignore staticMethod.alreadyNarrowedType
@@ -636,27 +531,20 @@ final class FrontendUserTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider invalidGenderDataProvider
-     */
+    #[DataProvider('invalidGenderDataProvider')]
+    #[Test]
     public function invalidGenderValuesAreInvalid(int $gender): void
     {
         self::assertFalse(FrontendUser::isValidGender($gender));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getFullSalutationInitiallyReturnsEmptyString(): void
     {
         self::assertSame('', $this->subject->getFullSalutation());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setFullSalutationSetsFullSalutation(): void
     {
         $value = 'Bonjour, my friend!';
@@ -666,17 +554,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getFullSalutation());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getGenderInitiallyReturnsNotProvided(): void
     {
         self::assertSame(FrontendUser::GENDER_NOT_PROVIDED, $this->subject->getGender());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setGenderSetsGender(): void
     {
         $value = FrontendUser::GENDER_DIVERSE;
@@ -686,17 +570,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getGender());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getZoneInitiallyReturnsEmptyString(): void
     {
         self::assertSame('', $this->subject->getZone());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setZoneSetsZone(): void
     {
         $value = 'Club-Mate';
@@ -706,17 +586,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getZone());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isPrivacyInitiallyReturnsFalse(): void
     {
         self::assertFalse($this->subject->getPrivacy());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setPrivacySetsPrivacy(): void
     {
         $this->subject->setPrivacy(true);
@@ -724,17 +600,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertTrue($this->subject->getPrivacy());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getPrivacyDateOfAcceptanceInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getPrivacyDateOfAcceptance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setPrivacyDateOfAcceptanceSetsPrivacyDateOfAcceptance(): void
     {
         $model = new \DateTime();
@@ -743,17 +615,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($model, $this->subject->getPrivacyDateOfAcceptance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function hasTermsAcknowledgedInitiallyReturnsFalse(): void
     {
         self::assertFalse($this->subject->hasTermsAcknowledged());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTermsAcknowledgedSetsTermsAcknowledged(): void
     {
         $this->subject->setTermsAcknowledged(true);
@@ -761,9 +629,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertTrue($this->subject->hasTermsAcknowledged());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDateOfBirthInitiallyReturnsNull(): void
     {
         $result = $this->subject->getDateOfBirth();
@@ -771,9 +637,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertNull($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDateOfBirthSetsDateOfBirth(): void
     {
         $date = new \DateTime();
@@ -783,9 +647,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($date, $this->subject->getDateOfBirth());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDateOfBirthCanSetDateOfBirthToNull(): void
     {
         $this->subject->setDateOfBirth(null);
@@ -796,7 +658,7 @@ final class FrontendUserTest extends UnitTestCase
     /**
      * @return array<non-empty-string, array{0: FrontendUser::STATUS_*}>
      */
-    public function validStatusDataProvider(): array
+    public static function validStatusDataProvider(): array
     {
         return [
             'unknown' => [FrontendUser::STATUS_NONE],
@@ -809,12 +671,10 @@ final class FrontendUserTest extends UnitTestCase
     }
 
     /**
-     * @test
-     *
      * @param FrontendUser::STATUS_* $status
-     *
-     * @dataProvider validStatusDataProvider
      */
+    #[DataProvider('validStatusDataProvider')]
+    #[Test]
     public function allStatusConstantsAreValid(int $status): void
     {
         self::assertTrue(FrontendUser::isValidStatus($status));
@@ -823,7 +683,7 @@ final class FrontendUserTest extends UnitTestCase
     /**
      * @return array<non-empty-string, array{0: int}>
      */
-    public function invalidStatusDataProvider(): array
+    public static function invalidStatusDataProvider(): array
     {
         return [
             'negative' => [-1],
@@ -831,27 +691,20 @@ final class FrontendUserTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider invalidStatusDataProvider
-     */
+    #[DataProvider('invalidStatusDataProvider')]
+    #[Test]
     public function invalidStatusValuesAreInvalid(int $gender): void
     {
         self::assertFalse(FrontendUser::isValidStatus($gender));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getStatusInitiallyReturnsNone(): void
     {
         self::assertSame(FrontendUser::STATUS_NONE, $this->subject->getStatus());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setStatusSetsStatus(): void
     {
         $value = FrontendUser::STATUS_RETIRED;
@@ -861,17 +714,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getStatus());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCommentsInitiallyReturnsEmptyString(): void
     {
         self::assertSame('', $this->subject->getComments());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCommentsSetsComments(): void
     {
         $value = 'Club-Mate';
@@ -881,17 +730,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($value, $this->subject->getComments());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTermsDateOfAcceptanceInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getTermsDateOfAcceptance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTermsDateOfAcceptanceSetsTermsDateOfAcceptance(): void
     {
         $model = new \DateTime();
@@ -900,9 +745,7 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($model, $this->subject->getTermsDateOfAcceptance());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDisplayNameForEmptyModelReturnsNull(): void
     {
         self::assertNull($this->subject->getDisplayName());
@@ -924,16 +767,14 @@ final class FrontendUserTest extends UnitTestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider displayNameDataProvider
-     */
+    #[DataProvider('displayNameDataProvider')]
+    #[Test]
     public function getDisplayNameForNonEmptyDataReturnsDisplayName(
         string $fullName,
         string $firstName,
         string $lastName,
         string $email,
-        string $expected
+        string $expected,
     ): void {
         $this->subject->setName($fullName);
         $this->subject->setFirstName($firstName);
@@ -943,17 +784,13 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($expected, $this->subject->getDisplayName());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getMembershipNumberInitiallyReturnsEmptyString(): void
     {
         self::assertSame('', $this->subject->getMembershipNumber());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setMembershipNumberSetsMembershipNumber(): void
     {
         $value = 'TR-808';
