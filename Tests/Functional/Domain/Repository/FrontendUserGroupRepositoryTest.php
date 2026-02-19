@@ -7,15 +7,15 @@ namespace OliverKlee\FeUserExtraFields\Tests\Functional\Domain\Repository;
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
 use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistInterface;
 use OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserGroupRepository;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\CMS\Extbase\Persistence\RepositoryInterface;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-/**
- * @covers \OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserGroupRepository
- * @covers \OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistTrait
- */
+#[CoversClass(FrontendUserGroupRepository::class)]
+#[CoversClass(DirectPersistTrait::class)]
 final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
 {
     protected array $testExtensionsToLoad = ['oliverklee/feuserextrafields'];
@@ -29,33 +29,25 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         $this->subject = $this->get(FrontendUserGroupRepository::class);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function implementsRepositoryInterface(): void
     {
         self::assertInstanceOf(RepositoryInterface::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isRepository(): void
     {
         self::assertInstanceOf(Repository::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function implementsDirectPersistInterface(): void
     {
         self::assertInstanceOf(DirectPersistInterface::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findAllForNoRecordsReturnsEmptyContainer(): void
     {
         $container = $this->subject->findAll();
@@ -63,9 +55,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $container);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidForExistingRecordReturnsModelWithAllScalarData(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
@@ -79,9 +69,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertSame('We build websites!', $model->getDescription());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidsWithoutMatchesReturnsEmptyArray(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
@@ -91,9 +79,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $models);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidsForExistingRecordReturnsMatchingModel(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
@@ -106,9 +92,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertSame(1, $firstModel->getUid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidsFindsRecordsOnAnyPage(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupOnPage.csv');
@@ -121,9 +105,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertSame(1, $firstModel->getUid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidsSilentlyIgnoresNonStringUids(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
@@ -137,9 +119,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertSame(1, $firstModel->getUid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidsForForPartialMatchesReturnsOnlyTheMatches(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
@@ -152,9 +132,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertSame(1, $firstModel->getUid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function initializesSubGroupsWithEmptyStorage(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
@@ -167,9 +145,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $groups);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function mapsSubgroupAssociation(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithTwoSubgroups.csv');
@@ -185,9 +161,7 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUserGroup::class, $groupsAsArray[1]);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function persistAllPersistsAddedModels(): void
     {
         $group = new FrontendUserGroup();

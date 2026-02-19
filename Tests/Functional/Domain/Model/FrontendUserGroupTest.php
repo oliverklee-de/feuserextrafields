@@ -6,21 +6,19 @@ namespace OliverKlee\FeUserExtraFields\Tests\Functional\Domain\Model;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
 use OliverKlee\FeUserExtraFields\Tests\Functional\Domain\Model\Fixtures\XclassFrontendUserGroup;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-/**
- * @covers \OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup
- */
+#[CoversClass(FrontendUserGroup::class)]
 final class FrontendUserGroupTest extends FunctionalTestCase
 {
     protected bool $initializeDatabase = false;
 
     protected array $testExtensionsToLoad = ['oliverklee/feuserextrafields'];
 
-    /**
-     * @test
-     */
+    #[Test]
     public function canBeSubclassed(): void
     {
         // @phpstan-ignore offsetAccess.nonOffsetAccessible, offsetAccess.nonOffsetAccessible
