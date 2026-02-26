@@ -23,6 +23,5 @@ updates:
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
       - dependency-name: "typo3/coding-standards"
-        versions: [ ">= 0.7.0" ]
     versioning-strategy: "increase"
     milestone: 38

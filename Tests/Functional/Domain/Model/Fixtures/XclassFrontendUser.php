@@ -6,6 +6,4 @@ namespace OliverKlee\FeUserExtraFields\Tests\Functional\Domain\Model\Fixtures;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 
-final class XclassFrontendUser extends FrontendUser
-{
-}
+final class XclassFrontendUser extends FrontendUser {}
