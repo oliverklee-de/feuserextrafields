@@ -118,7 +118,7 @@
 			"@check:php:sniff",
 			"@check:php:stan"
 		],
-		"check:php:cs-fixer": "php-cs-fixer fix --config .php-cs-fixer.php -v --dry-run --diff",
+		"check:php:cs-fixer": "php-cs-fixer fix --config ./Build/php-cs-fixer/config.php -v --dry-run --diff",
 		"check:php:lint": "find .*.php *.php Classes Configuration Tests -name '*.php' -print0 | xargs -r -0 -n 1 -P 4 php -l",
 		"check:php:sniff": "phpcs Classes Configuration Tests",
 		"check:php:stan": "phpstan --no-progress --configuration=Build/phpstan/phpstan.neon",
@@ -156,7 +156,7 @@
 			"@fix:php:cs",
 			"@fix:php:sniff"
 		],
-		"fix:php:cs": "php-cs-fixer fix --config .php-cs-fixer.php",
+		"fix:php:cs": "php-cs-fixer fix --config ./Build/php-cs-fixer/config.php",
 		"fix:php:sniff": "phpcbf Classes Configuration Tests",
 		"phpstan:baseline": ".Build/vendor/bin/phpstan --generate-baseline=Build/phpstan/phpstan-baseline.neon --allow-empty-baseline --configuration=Build/phpstan/phpstan.neon",
 		"prepare-release": [
@@ -167,7 +167,6 @@
 			"rm .editorconfig",
 			"rm .gitattributes",
 			"rm .gitignore",
-			"rm .php-cs-fixer.php",
 			"rm crowdin.yml",
 			"rm phive.xml",
 			"rm phpcs.xml",
