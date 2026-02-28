@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Relax the type annotations for `FrontendUser.gender` (#922)
+
 ### Deprecated
 
 ### Removed
