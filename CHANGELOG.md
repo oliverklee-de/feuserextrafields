@@ -13,6 +13,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Deprecated
 
+- Mark `FrontendUser::VALID_GENDERS` and `::VALID_STATUS` as `@internal` (#923)
+
 ### Removed
 
 ### Fixed
