@@ -178,7 +178,7 @@ class FrontendUser extends AbstractEntity
     protected string $fullSalutation = '';
 
     /**
-     * @var self::GENDER_*
+     * @phpstan-var int<0, max>
      */
     protected int $gender = self::GENDER_NOT_PROVIDED;
 
@@ -597,18 +597,15 @@ class FrontendUser extends AbstractEntity
     }
 
     /**
-     * @return self::GENDER_*
+     * @return int<0, max>
      */
     public function getGender(): int
     {
-        $gender = $this->gender;
-        \assert(\in_array($gender, self::VALID_GENDERS, true));
-
-        return $gender;
+        return $this->gender;
     }
 
     /**
-     * @param self::GENDER_* $gender
+     * @param int<0, max> $gender
      */
     public function setGender(int $gender): void
     {
