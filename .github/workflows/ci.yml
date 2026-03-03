@@ -129,7 +129,7 @@ jobs:
       - name: Install Composer dependencies
         run: "composer update --no-progress"
       - name: Run Rector
-        run: ".Build/vendor/bin/rector --dry-run --no-progress-bar"
+        run: ".Build/vendor/bin/rector --config=./Build/rector/config.php --dry-run --no-progress-bar"
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-24.04

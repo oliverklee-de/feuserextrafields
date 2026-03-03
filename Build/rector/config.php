@@ -20,10 +20,10 @@ use Ssch\Typo3RectorTestingFramework\Set\TYPO3TestingFrameworkSetList;
 
 return RectorConfig::configure()
     ->withPaths([
-        __DIR__ . '/Classes/',
-        __DIR__ . '/Configuration/',
-        __DIR__ . '/Tests/',
-        __DIR__ . '/ext_emconf.php',
+        __DIR__ . '/../../Classes/',
+        __DIR__ . '/../../Configuration/',
+        __DIR__ . '/../../Tests/',
+        __DIR__ . '/../../ext_emconf.php',
     ])
     ->withPhpVersion(PhpVersion::PHP_74)
     ->withPhpSets(
