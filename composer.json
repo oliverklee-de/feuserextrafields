@@ -168,8 +168,7 @@
 			"rm .gitattributes",
 			"rm .gitignore",
 			"rm crowdin.yml",
-			"rm phive.xml",
-			"rm rector.php"
+			"rm phive.xml"
 		]
 	},
 	"scripts-descriptions": {
