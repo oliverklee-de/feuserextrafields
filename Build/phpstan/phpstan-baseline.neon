@@ -1,21 +1,49 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameters should have \"DateTime\" types as the only types passed to this method$#"
+			rawMessage: Parameters should have "DateTimeInterface" types as the only types passed to this method
+			identifier: typePerfect.narrowPublicClassMethodParamType
 			count: 2
 			path: ../../Classes/Domain/Model/FrontendUser.php
 
 		-
-			message: "#^Parameters should have \"TYPO3\\\\CMS\\\\Extbase\\\\Persistence\\\\ObjectStorage\\<OliverKlee\\\\FeUserExtraFields\\\\Domain\\\\Model\\\\FrontendUserGroup\\>\" types as the only types passed to this method$#"
+			rawMessage: 'Method OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserGroupRepository::findByUids() return type with generic interface TYPO3\CMS\Extbase\Persistence\QueryResultInterface does not specify its types: TKey, TValue'
+			identifier: missingType.generics
 			count: 1
-			path: ../../Classes/Domain/Model/FrontendUser.php
+			path: ../../Classes/Domain/Repository/FrontendUserGroupRepository.php
 
 		-
-			message: "#^Parameters should have \"TYPO3\\\\CMS\\\\Extbase\\\\Persistence\\\\ObjectStorage\\<TYPO3\\\\CMS\\\\Extbase\\\\Domain\\\\Model\\\\FileReference\\>\" types as the only types passed to this method$#"
+			rawMessage: 'Method OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserRepository::findBySearchTermInBackendMode() return type with generic interface TYPO3\CMS\Extbase\Persistence\QueryResultInterface does not specify its types: TKey, TValue'
+			identifier: missingType.generics
 			count: 1
-			path: ../../Classes/Domain/Model/FrontendUser.php
+			path: ../../Classes/Domain/Repository/FrontendUserRepository.php
 
 		-
-			message: "#^Parameters should have \"TYPO3\\\\CMS\\\\Extbase\\\\Persistence\\\\ObjectStorage\\<OliverKlee\\\\FeUserExtraFields\\\\Domain\\\\Model\\\\FrontendUserGroup\\>\" types as the only types passed to this method$#"
+			rawMessage: 'Call to method getUid() of internal class TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject from outside its root namespace TYPO3.'
+			identifier: method.internalClass
+			count: 4
+			path: ../../Tests/Functional/Domain/Repository/FrontendUserGroupRepositoryTest.php
+
+		-
+			rawMessage: 'Call to method getUid() of internal class TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject from outside its root namespace TYPO3.'
+			identifier: method.internalClass
 			count: 1
-			path: ../../Classes/Domain/Model/FrontendUserGroup.php
+			path: ../../Tests/Functional/Domain/Repository/FrontendUserRepositoryTest.php
+
+		-
+			rawMessage: 'Call to method setPid() of internal class TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject from outside its root namespace TYPO3.'
+			identifier: method.internalClass
+			count: 1
+			path: ../../Tests/Functional/Domain/Repository/FrontendUserRepositoryTest.php
+
+		-
+			rawMessage: 'Call to method getPid() of internal class TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject from outside its root namespace TYPO3.'
+			identifier: method.internalClass
+			count: 2
+			path: ../../Tests/Unit/Domain/Model/FrontendUserTest.php
+
+		-
+			rawMessage: 'Call to method setPid() of internal class TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject from outside its root namespace TYPO3.'
+			identifier: method.internalClass
+			count: 1
+			path: ../../Tests/Unit/Domain/Model/FrontendUserTest.php
