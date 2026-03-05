@@ -69,7 +69,7 @@ return RectorConfig::configure()
         // PHPUnitSetList::PHPUNIT_70,
         // PHPUnitSetList::PHPUNIT_80,
         // PHPUnitSetList::PHPUNIT_90,
-        // PHPUnitSetList::PHPUNIT_100,
+        PHPUnitSetList::PHPUNIT_100,
         // PHPUnitSetList::PHPUNIT_CODE_QUALITY,
 
         // TYPO3 Sets
@@ -82,7 +82,7 @@ return RectorConfig::configure()
         Typo3LevelSetList::UP_TO_TYPO3_11,
         // Typo3LevelSetList::UP_TO_TYPO3_12,
 
-        // TYPO3TestingFrameworkSetList::TYPO3_TESTING_FRAMEWORK_7,
+        TYPO3TestingFrameworkSetList::TYPO3_TESTING_FRAMEWORK_7,
     ])
     // To have a better analysis from PHPStan, we teach it here some more things
     ->withPHPStanConfigs([
@@ -94,8 +94,8 @@ return RectorConfig::configure()
     ])
     ->withImportNames(true, true, false)
     ->withConfiguredRule(ExtEmConfRector::class, [
-        ExtEmConfRector::PHP_VERSION_CONSTRAINT => '7.4.0-8.4.99',
-        ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '11.5.41-12.4.99',
+        ExtEmConfRector::PHP_VERSION_CONSTRAINT => '8.1.0-8.4.99',
+        ExtEmConfRector::TYPO3_VERSION_CONSTRAINT => '12.4.41-13.4.99',
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => [],
     ])
     ->withSkip([
