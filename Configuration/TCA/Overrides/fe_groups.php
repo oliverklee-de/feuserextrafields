@@ -10,6 +10,7 @@ call_user_func(static function (): void {
 
     $temporaryColumns = [
         'crdate' => [
+            'exclude' => true,
             'label' => $languageFile . 'crdate',
             'config' => [
                 'type' => 'input',
@@ -20,6 +21,7 @@ call_user_func(static function (): void {
             ],
         ],
         'tstamp' => [
+            'exclude' => true,
             'label' => $languageFile . 'tstamp',
             'config' => [
                 'type' => 'input',

@@ -12,6 +12,7 @@ call_user_func(static function (): void {
 
     $temporaryColumns = [
         'crdate' => [
+            'exclude' => true,
             'label' => $languageFile . 'crdate',
             'config' => [
                 'type' => 'input',
@@ -22,6 +23,7 @@ call_user_func(static function (): void {
             ],
         ],
         'tstamp' => [
+            'exclude' => true,
             'label' => $languageFile . 'tstamp',
             'config' => [
                 'type' => 'input',
@@ -32,6 +34,7 @@ call_user_func(static function (): void {
             ],
         ],
         'full_salutation' => [
+            'exclude' => true,
             'label' => $languageFile . 'full_salutation',
             'config' => [
                 'type' => 'input',
@@ -42,6 +45,7 @@ call_user_func(static function (): void {
             ],
         ],
         'gender' => [
+            'exclude' => true,
             'label' => $languageFile . 'gender',
             'config' => [
                 'type' => 'select',
@@ -68,6 +72,7 @@ call_user_func(static function (): void {
             ],
         ],
         'date_of_birth' => [
+            'exclude' => true,
             'label' => $languageFile . 'dateOfBirth',
             'config' => [
                 'type' => 'input',
@@ -79,6 +84,7 @@ call_user_func(static function (): void {
             ],
         ],
         'zone' => [
+            'exclude' => true,
             'label' => $languageFile . 'zone',
             'config' => [
                 'type' => 'input',
@@ -158,6 +164,7 @@ call_user_func(static function (): void {
             ],
         ],
         'status' => [
+            'exclude' => true,
             'label' => $languageFile . 'status',
             'config' => [
                 'type' => 'select',
@@ -192,6 +199,7 @@ call_user_func(static function (): void {
             ],
         ],
         'comments' => [
+            'exclude' => true,
             'label' => $languageFile . 'comments',
             'config' => [
                 'type' => 'text',
