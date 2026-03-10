@@ -42,8 +42,6 @@ class FrontendUser extends AbstractEntity
      * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
      *
      * @internal
-     *
-     * @var list<self::GENDER_*>
      */
     public const VALID_GENDERS = [
         self::GENDER_MALE,
@@ -61,8 +59,6 @@ class FrontendUser extends AbstractEntity
 
     /**
      * @internal
-     *
-     * @var list<self::STATUS_*>
      */
     public const VALID_STATUSES = [
         self::STATUS_NONE,
