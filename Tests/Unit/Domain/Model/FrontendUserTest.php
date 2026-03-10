@@ -620,6 +620,7 @@ final class FrontendUserTest extends UnitTestCase
      */
     public function allGenderConstantsAreValid(int $gender): void
     {
+        // @phpstan-ignore staticMethod.alreadyNarrowedType
         self::assertTrue(FrontendUser::isValidGender($gender));
     }
 

@@ -590,6 +590,8 @@ class FrontendUser extends AbstractEntity
 
     /**
      * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
+     *
+     * @phpstan-assert-if-true 0|1|2|99 $gender
      */
     public static function isValidGender(int $gender): bool
     {
