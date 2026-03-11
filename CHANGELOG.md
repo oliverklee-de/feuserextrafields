@@ -19,6 +19,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- Improve the type annotations (#934)
+
 ## 6.7.0: Add membership number field
 
 ### Added
