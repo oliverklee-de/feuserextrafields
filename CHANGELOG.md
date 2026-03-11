@@ -9,13 +9,21 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## 6.7.1: Cleanup
+
+### Changed
+
 - Relax the type annotations for `FrontendUser.gender` (#922)
 
 ### Deprecated
 
 - Mark `FrontendUser::VALID_GENDERS` and `::VALID_STATUS` as `@internal` (#923)
-
-### Removed
 
 ### Fixed
 
