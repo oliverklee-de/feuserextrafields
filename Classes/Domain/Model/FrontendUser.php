@@ -218,10 +218,8 @@ class FrontendUser extends AbstractEntity
      */
     protected string $membershipNumber = '';
 
-    public function __construct(string $username = '', string $password = '')
+    public function __construct()
     {
-        $this->username = $username;
-        $this->password = $password;
         $this->initializeObject();
     }
 
