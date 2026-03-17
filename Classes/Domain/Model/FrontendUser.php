@@ -18,38 +18,6 @@ class FrontendUser extends AbstractEntity
     use CreationDateTrait;
     use ModificationDateTrait;
 
-    /**
-     * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
-     */
-    public const GENDER_MALE = 0;
-
-    /**
-     * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
-     */
-    public const GENDER_FEMALE = 1;
-
-    /**
-     * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
-     */
-    public const GENDER_DIVERSE = 2;
-
-    /**
-     * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
-     */
-    public const GENDER_NOT_PROVIDED = 99;
-
-    /**
-     * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
-     *
-     * @internal
-     */
-    public const VALID_GENDERS = [
-        self::GENDER_MALE,
-        self::GENDER_FEMALE,
-        self::GENDER_DIVERSE,
-        self::GENDER_NOT_PROVIDED,
-    ];
-
     public const STATUS_NONE = 0;
     public const STATUS_STUDENT = 1;
     public const STATUS_JOB_SEEKING_FULL_TIME = 2;
@@ -180,7 +148,7 @@ class FrontendUser extends AbstractEntity
     /**
      * @phpstan-var int<0, max>
      */
-    protected int $gender = self::GENDER_NOT_PROVIDED;
+    protected int $gender;
 
     /**
      * @Extbase\Validate("StringLength", options={"maximum": 45})
@@ -228,6 +196,7 @@ class FrontendUser extends AbstractEntity
      */
     public function initializeObject(): void
     {
+        $this->gender = Gender::notProvided();
         $this->userGroup = new ObjectStorage();
         $this->image = new ObjectStorage();
     }
@@ -584,16 +553,6 @@ class FrontendUser extends AbstractEntity
     public function setFullSalutation(string $fullSalutation): void
     {
         $this->fullSalutation = $fullSalutation;
-    }
-
-    /**
-     * @deprecated #599 will be removed in version 7.0, use the `Gender` class instead
-     *
-     * @phpstan-assert-if-true 0|1|2|99 $gender
-     */
-    public static function isValidGender(int $gender): bool
-    {
-        return \in_array($gender, self::VALID_GENDERS, true);
     }
 
     /**
