@@ -2,7 +2,6 @@
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 defined('TYPO3') || die();
@@ -202,98 +201,6 @@ call_user_func(static function (): void {
             ],
         ],
     ];
-
-    $typo3Version = new Typo3Version();
-    if ($typo3Version->getMajorVersion() < 12) {
-        unset($temporaryColumns['gender']['config']['items'], $temporaryColumns['status']['config']['items']);
-        $temporaryColumns = array_replace_recursive(
-            $temporaryColumns,
-            [
-                'crdate' => [
-                    'config' => [
-                        'renderType' => 'inputDateTime',
-                        'eval' => 'datetime,int',
-                    ],
-                ],
-                'tstamp' => [
-                    'config' => [
-                        'renderType' => 'inputDateTime',
-                        'eval' => 'datetime,int',
-                    ],
-                ],
-                'date_of_birth' => [
-                    'config' => [
-                        'renderType' => 'inputDateTime',
-                        'eval' => 'datetime,int',
-                    ],
-                ],
-                'gender' => [
-                    'config' => [
-                        'items' => [
-                            [
-                                $languageFile . 'gender.99',
-                                Gender::notProvided(),
-                            ],
-                            [
-                                $languageFile . 'gender.0',
-                                Gender::male(),
-                            ],
-                            [
-                                $languageFile . 'gender.1',
-                                Gender::female(),
-                            ],
-                            [
-                                $languageFile . 'gender.2',
-                                Gender::diverse(),
-                            ],
-                        ],
-                    ],
-                ],
-                'privacy_date_of_acceptance' => [
-                    'config' => [
-                        'renderType' => 'inputDateTime',
-                        'eval' => 'datetime,int',
-                    ],
-                ],
-                'terms_date_of_acceptance' => [
-                    'config' => [
-                        'renderType' => 'inputDateTime',
-                        'eval' => 'datetime,int',
-                    ],
-                ],
-                'status' => [
-                    'config' => [
-                        'items' => [
-                            [
-                                $languageFile . 'status.0',
-                                FrontendUser::STATUS_NONE,
-                            ],
-                            [
-                                $languageFile . 'status.1',
-                                FrontendUser::STATUS_STUDENT,
-                            ],
-                            [
-                                $languageFile . 'status.2',
-                                FrontendUser::STATUS_JOB_SEEKING_FULL_TIME,
-                            ],
-                            [
-                                $languageFile . 'status.3',
-                                FrontendUser::STATUS_WORKING,
-                            ],
-                            [
-                                $languageFile . 'status.4',
-                                FrontendUser::STATUS_RETIRED,
-                            ],
-                            [
-                                $languageFile . 'status.5',
-                                FrontendUser::STATUS_JOB_SEEKING_PART_TIME,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        );
-    }
 
     ExtensionManagementUtility::addTCAcolumns('fe_users', $temporaryColumns);
     ExtensionManagementUtility::addToAllTCAtypes(
