@@ -8,7 +8,10 @@ use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
 use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
 use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistInterface;
+use OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistTrait;
 use OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserRepository;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
@@ -17,10 +20,8 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 use TYPO3\CMS\Extbase\Persistence\RepositoryInterface;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-/**
- * @covers \OliverKlee\FeUserExtraFields\Domain\Repository\FrontendUserRepository
- * @covers \OliverKlee\FeUserExtraFields\Domain\Repository\DirectPersistTrait
- */
+#[CoversClass(FrontendUserRepository::class)]
+#[CoversClass(DirectPersistTrait::class)]
 final class FrontendUserRepositoryTest extends FunctionalTestCase
 {
     protected array $testExtensionsToLoad = ['oliverklee/feuserextrafields'];
@@ -38,33 +39,25 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         $this->subject = $this->get(FrontendUserRepository::class);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function implementsRepositoryInterface(): void
     {
         self::assertInstanceOf(RepositoryInterface::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isRepository(): void
     {
         self::assertInstanceOf(Repository::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function implementsDirectPersistInterface(): void
     {
         self::assertInstanceOf(DirectPersistInterface::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findAllForNoRecordsReturnsEmptyContainer(): void
     {
         $container = $this->subject->findAll();
@@ -72,9 +65,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $container);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findByUidForExistingRecordReturnsModelWithAllScalarData(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithAllScalarData.csv');
@@ -115,9 +106,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertSame('TB-303', $model->getMembershipNumber());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function initializesUserGroupsWithEmptyStorage(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithAllScalarData.csv');
@@ -130,9 +119,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $groups);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function mapsUserGroupsAssociation(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithTwoGroups.csv');
@@ -148,9 +135,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUserGroup::class, $groupsAsArray[1]);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function initializesImageWithEmptyStorage(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithAllScalarData.csv');
@@ -163,9 +148,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $image);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function mapsImageAssociation(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithImage.csv');
@@ -182,9 +165,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertSame(1, $firstImage->getUid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function persistAllPersistsAddedModels(): void
     {
         $user = new FrontendUser();
@@ -195,9 +176,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         $this->assertCSVDataSet(__DIR__ . '/Assertions/CreatedUser.csv');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findOneByUsernameWithoutMatchReturnsNull(): void
     {
         $result = $this->subject->findOneByUsername('not-existing-username');
@@ -205,9 +184,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertNull($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findOneByUsernameWithMatchReturnsUserWithTheProvidedUsername(): void
     {
         $username = 'max';
@@ -219,9 +196,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertSame($username, $result->getUsername());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findOneByUsernameWithEmptyUsernameReturnsNullEvenForUserWithEmptyUsername(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithEmptyUsername.csv');
@@ -231,9 +206,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertNull($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function existsWithUsernameWithoutMatchReturnsFalse(): void
     {
         $result = $this->subject->existsWithUsername('not-existing-username');
@@ -241,9 +214,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertFalse($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function existsWithUsernameWithMatchReturnsTrue(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithAllScalarData.csv');
@@ -253,9 +224,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertTrue($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function existsWithUsernameWithEmptyUsernameReturnsFalseEvenForUserWithEmptyUsername(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserWithEmptyUsername.csv');
@@ -265,9 +234,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertFalse($result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function willSaveNewUserWithExplicitPidOnTheGivenPage(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/Pages.csv');
@@ -282,9 +249,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         $this->assertCSVDataSet(__DIR__ . '/Assertions/CreatedUserOnPage.csv');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeReturnsQueryResult(): void
     {
         $result = $this->subject->findBySearchTermInBackendMode('1234');
@@ -292,9 +257,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(QueryResultInterface::class, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeReturnsResultWithFrontendUser(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -305,9 +268,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsVisibleUserWithExactMatchingUid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -318,9 +279,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsHiddenUserWithExactMatchingUid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/HiddenUser.csv');
@@ -331,9 +290,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeIgnoresDeletedUserWithExactMatchingUid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/DeletedUser.csv');
@@ -344,9 +301,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsUserOnAnyPage(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/UserOnPage.csv');
@@ -357,9 +312,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeIgnoresUserWithCompletelyDifferentUid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -369,9 +322,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeIgnoresUserSubstringMatchInUid(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -381,9 +332,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertCount(0, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsUserWithCaseInsensitiveSubstringMatchOnUserName(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -394,9 +343,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsUserWithCaseInsensitiveSubstringMatchOnFullName(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -407,9 +354,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsUserWithCaseInsensitiveSubstringMatchOnFirstName(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -420,9 +365,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsUserWithCaseInsensitiveSubstringMatchOnEmail(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');
@@ -433,9 +376,7 @@ final class FrontendUserRepositoryTest extends FunctionalTestCase
         self::assertInstanceOf(FrontendUser::class, $model);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function findBySearchTermInBackendModeFindsUserWithCaseInsensitiveSubstringMatchOnCompany(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/User/findBySearchTermInBackendMode/VisibleUser.csv');

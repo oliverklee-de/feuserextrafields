@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace OliverKlee\FeUserExtraFields\Tests\Unit\Domain\Model;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
-/**
- * @covers \OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup
- */
+#[CoversClass(FrontendUserGroup::class)]
 final class FrontendUserGroupTest extends UnitTestCase
 {
     private FrontendUserGroup $subject;
@@ -23,25 +23,19 @@ final class FrontendUserGroupTest extends UnitTestCase
         $this->subject = new FrontendUserGroup();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function isAbstractEntity(): void
     {
         self::assertInstanceOf(AbstractEntity::class, $this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCreationDateInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getCreationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCreationDateSetsCreationDate(): void
     {
         $date = new \DateTime();
@@ -51,17 +45,13 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame($date, $this->subject->getCreationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getModificationDateInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getModificationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setModificationDateSetsModificationDate(): void
     {
         $date = new \DateTime();
@@ -71,9 +61,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame($date, $this->subject->getModificationDate());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getTitle();
@@ -81,9 +69,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleInitiallyReturnsGivenTitleProvidedInConstructor(): void
     {
         $title = 'foo bar';
@@ -94,9 +80,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame($title, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTitleSetsTitle(): void
     {
         $title = 'foo bar';
@@ -106,9 +90,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame($title, $this->subject->getTitle());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getSubgroupInitiallyReturnsEmptyStorage(): void
     {
         $result = $this->subject->getSubgroup();
@@ -117,9 +99,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertCount(0, $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setSubgroupSetsUserGroups(): void
     {
         /** @var ObjectStorage<FrontendUserGroup> $groups */
@@ -131,9 +111,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame($groups, $this->subject->getSubgroup());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDescriptionInitiallyReturnsEmptyString(): void
     {
         $result = $this->subject->getDescription();
@@ -141,9 +119,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame('', $result);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDescriptionSetsDescription(): void
     {
         $description = 'foo bar';
@@ -153,9 +129,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertSame($description, $this->subject->getDescription());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function addSubgroupAddsUserGroup(): void
     {
         $group = new FrontendUserGroup('foo');
@@ -165,9 +139,7 @@ final class FrontendUserGroupTest extends UnitTestCase
         self::assertTrue($this->subject->getSubgroup()->contains($group));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function removeSubgroupRemovesUserGroup(): void
     {
         $group = new FrontendUserGroup('foo');
