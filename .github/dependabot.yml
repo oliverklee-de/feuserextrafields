@@ -22,6 +22,5 @@ updates:
       - dependency-name: "symfony/translation"
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
-      - dependency-name: "typo3/coding-standards"
     versioning-strategy: "increase"
     milestone: 21
