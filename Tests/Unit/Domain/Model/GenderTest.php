@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace OliverKlee\FeUserExtraFields\Tests\Unit\Domain\Model;
 
-use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
@@ -18,25 +17,25 @@ final class GenderTest extends UnitTestCase
     #[Test]
     public function maleReturnsValueForMale(): void
     {
-        self::assertSame(FrontendUser::GENDER_MALE, Gender::male());
+        self::assertSame(0, Gender::male());
     }
 
     #[Test]
     public function femaleReturnsValueForFemale(): void
     {
-        self::assertSame(FrontendUser::GENDER_FEMALE, Gender::female());
+        self::assertSame(1, Gender::female());
     }
 
     #[Test]
     public function diverseReturnsValueForDiverse(): void
     {
-        self::assertSame(FrontendUser::GENDER_DIVERSE, Gender::diverse());
+        self::assertSame(2, Gender::diverse());
     }
 
     #[Test]
     public function notProvidedReturnsValueForNotProvided(): void
     {
-        self::assertSame(FrontendUser::GENDER_NOT_PROVIDED, Gender::notProvided());
+        self::assertSame(99, Gender::notProvided());
     }
 
     /**

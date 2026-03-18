@@ -6,6 +6,7 @@ namespace OliverKlee\FeUserExtraFields\Tests\Unit\Domain\Model;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUser;
 use OliverKlee\FeUserExtraFields\Domain\Model\FrontendUserGroup;
+use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
@@ -495,49 +496,6 @@ final class FrontendUserTest extends UnitTestCase
         self::assertSame($date, $this->subject->getLastLogin());
     }
 
-    /**
-     * @return array<non-empty-string, array{0: FrontendUser::GENDER_*}>
-     */
-    public static function validGenderDataProvider(): array
-    {
-        return [
-            'male' => [FrontendUser::GENDER_MALE],
-            'female' => [FrontendUser::GENDER_FEMALE],
-            'diverse' => [FrontendUser::GENDER_DIVERSE],
-            'unknown' => [FrontendUser::GENDER_NOT_PROVIDED],
-        ];
-    }
-
-    /**
-     * @param FrontendUser::GENDER_* $gender
-     */
-    #[DataProvider('validGenderDataProvider')]
-    #[Test]
-    public function allGenderConstantsAreValid(int $gender): void
-    {
-        // @phpstan-ignore staticMethod.alreadyNarrowedType
-        self::assertTrue(FrontendUser::isValidGender($gender));
-    }
-
-    /**
-     * @return array<non-empty-string, array{0: int}>
-     */
-    public static function invalidGenderDataProvider(): array
-    {
-        return [
-            'negative' => [-1],
-            'too large' => [100],
-            'unassigned in the middle' => [50],
-        ];
-    }
-
-    #[DataProvider('invalidGenderDataProvider')]
-    #[Test]
-    public function invalidGenderValuesAreInvalid(int $gender): void
-    {
-        self::assertFalse(FrontendUser::isValidGender($gender));
-    }
-
     #[Test]
     public function getFullSalutationInitiallyReturnsEmptyString(): void
     {
@@ -557,13 +515,13 @@ final class FrontendUserTest extends UnitTestCase
     #[Test]
     public function getGenderInitiallyReturnsNotProvided(): void
     {
-        self::assertSame(FrontendUser::GENDER_NOT_PROVIDED, $this->subject->getGender());
+        self::assertSame(Gender::notProvided(), $this->subject->getGender());
     }
 
     #[Test]
     public function setGenderSetsGender(): void
     {
-        $value = FrontendUser::GENDER_DIVERSE;
+        $value = Gender::diverse();
 
         $this->subject->setGender($value);
 
