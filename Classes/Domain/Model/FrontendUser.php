@@ -362,27 +362,15 @@ class FrontendUser extends AbstractEntity
      */
     public function getDisplayName(): ?string
     {
-        switch (true) {
-            case $this->getName() !== '':
-                $displayName = $this->getName();
-                break;
-            case $this->getLastName() !== '' && $this->getFirstName() !== '':
-                $displayName = $this->getLastName() . ', ' . $this->getFirstName();
-                break;
-            case $this->getLastName() !== '':
-                $displayName = $this->getLastName();
-                break;
-            case $this->getFirstName() !== '':
-                $displayName = $this->getFirstName();
-                break;
-            case $this->getEmail() !== '':
-                $displayName = $this->getEmail();
-                break;
-            default:
-                $displayName = null;
-        }
-
-        return $displayName;
+        return match (true) {
+            ($this->getName() !== '') => $this->getName(),
+            ($this->getLastName() !== '' && $this->getFirstName() !== '')
+            => $this->getLastName() . ', ' . $this->getFirstName(),
+            ($this->getLastName() !== '') => $this->getLastName(),
+            ($this->getFirstName() !== '') => $this->getFirstName(),
+            ($this->getEmail() !== '') => $this->getEmail(),
+            default => null,
+        };
     }
 
     public function getTitle(): string
