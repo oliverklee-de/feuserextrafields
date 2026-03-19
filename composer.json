@@ -49,9 +49,6 @@
 	"replace": {
 		"typo3-ter/feuserextrafields": "self.version"
 	},
-	"conflict": {
-		"webmozart/assert": "< 1.12.1"
-	},
 	"prefer-stable": true,
 	"autoload": {
 		"psr-4": {
