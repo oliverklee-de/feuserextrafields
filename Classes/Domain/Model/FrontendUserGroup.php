@@ -16,14 +16,10 @@ class FrontendUserGroup extends AbstractEntity
     use CreationDateTrait;
     use ModificationDateTrait;
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 50})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 50]])]
     protected string $title = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 65535})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 65535]])]
     protected string $description = '';
 
     /**
