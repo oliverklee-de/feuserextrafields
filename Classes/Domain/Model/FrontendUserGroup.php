@@ -27,9 +27,8 @@ class FrontendUserGroup extends AbstractEntity
      */
     protected ObjectStorage $subgroup;
 
-    public function __construct(string $title = '')
+    public function __construct()
     {
-        $this->setTitle($title);
         $this->initializeObject();
     }
 

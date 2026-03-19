@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Removed
 
+- Drop the `title` parameter from the `FrontendUserGroup` constructor (#952)
 - Drop the gender constants (#944)
 - Drop support for TYPO3 11LTS (#941)
 - Drop the `username/password` parameters from the FE user constructor (#940)
