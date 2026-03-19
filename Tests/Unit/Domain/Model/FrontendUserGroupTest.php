@@ -70,17 +70,6 @@ final class FrontendUserGroupTest extends UnitTestCase
     }
 
     #[Test]
-    public function getTitleInitiallyReturnsGivenTitleProvidedInConstructor(): void
-    {
-        $title = 'foo bar';
-        $subject = new FrontendUserGroup($title);
-
-        $result = $subject->getTitle();
-
-        self::assertSame($title, $result);
-    }
-
-    #[Test]
     public function setTitleSetsTitle(): void
     {
         $title = 'foo bar';
@@ -104,7 +93,7 @@ final class FrontendUserGroupTest extends UnitTestCase
     {
         /** @var ObjectStorage<FrontendUserGroup> $groups */
         $groups = new ObjectStorage();
-        $groups->attach(new FrontendUserGroup('foo'));
+        $groups->attach(new FrontendUserGroup());
 
         $this->subject->setSubgroup($groups);
 
@@ -132,7 +121,7 @@ final class FrontendUserGroupTest extends UnitTestCase
     #[Test]
     public function addSubgroupAddsUserGroup(): void
     {
-        $group = new FrontendUserGroup('foo');
+        $group = new FrontendUserGroup();
 
         $this->subject->addSubgroup($group);
 
@@ -142,7 +131,7 @@ final class FrontendUserGroupTest extends UnitTestCase
     #[Test]
     public function removeSubgroupRemovesUserGroup(): void
     {
-        $group = new FrontendUserGroup('foo');
+        $group = new FrontendUserGroup();
         $this->subject->addSubgroup($group);
         self::assertTrue($this->subject->getSubgroup()->contains($group));
 

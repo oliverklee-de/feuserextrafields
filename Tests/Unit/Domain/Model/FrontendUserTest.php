@@ -130,7 +130,7 @@ final class FrontendUserTest extends UnitTestCase
     {
         /** @var ObjectStorage<FrontendUserGroup> $groups */
         $groups = new ObjectStorage();
-        $groups->attach(new FrontendUserGroup('foo'));
+        $groups->attach(new FrontendUserGroup());
 
         $this->subject->setUserGroup($groups);
 
@@ -140,7 +140,7 @@ final class FrontendUserTest extends UnitTestCase
     #[Test]
     public function addUserGroupAddsUserGroup(): void
     {
-        $group = new FrontendUserGroup('foo');
+        $group = new FrontendUserGroup();
 
         $this->subject->addUserGroup($group);
 
@@ -150,7 +150,7 @@ final class FrontendUserTest extends UnitTestCase
     #[Test]
     public function removeUserGroupRemovesUserGroup(): void
     {
-        $group = new FrontendUserGroup('foo');
+        $group = new FrontendUserGroup();
         $this->subject->addUserGroup($group);
         self::assertTrue($this->subject->getUserGroup()->contains($group));
 
