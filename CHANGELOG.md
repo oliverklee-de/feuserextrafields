@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Use PHP Attributes für Extbase model validations (#951)
+
 ### Deprecated
 
 ### Removed

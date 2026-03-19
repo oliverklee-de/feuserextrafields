@@ -37,16 +37,13 @@ class FrontendUser extends AbstractEntity
         self::STATUS_JOB_SEEKING_PART_TIME,
     ];
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 255})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $username = '';
 
     /**
      * the password hash
-     *
-     * @Extbase\Validate("StringLength", options={"maximum": 100})
      */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 100]])]
     protected string $password = '';
 
     /**
@@ -54,81 +51,52 @@ class FrontendUser extends AbstractEntity
      */
     protected ObjectStorage $userGroup;
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 160})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 160]])]
     protected string $name = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 50})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 50]])]
     protected string $firstName = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 50})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 50]])]
     protected string $middleName = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 50})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 50]])]
     protected string $lastName = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 255})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $address = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 30})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 30]])]
     protected string $telephone = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 255})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $email = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 40})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 40]])]
     protected string $title = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 10})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 10]])]
     protected string $zip = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 50})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 50]])]
     protected string $city = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 40})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 40]])]
     protected string $country = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 80})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 80]])]
     protected string $www = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 80})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 80]])]
     protected string $company = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 128})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 128]])]
     protected string $department = '';
 
     /**
      * VAT identification number (VATIN)
-     *
-     * @Extbase\Validate("StringLength", options={"maximum": 15})
      */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 15]])]
     protected string $vatIn = '';
 
     /**
@@ -140,9 +108,8 @@ class FrontendUser extends AbstractEntity
 
     /**
      * salutation (possibly including a name), e.g., "Hello" or "Good day, Mr. Smith"
-     *
-     * @Extbase\Validate("StringLength", options={"maximum": 255})
      */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $fullSalutation = '';
 
     /**
@@ -150,9 +117,7 @@ class FrontendUser extends AbstractEntity
      */
     protected int $gender;
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 45})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 45]])]
     protected string $zone = '';
 
     /**
@@ -176,14 +141,10 @@ class FrontendUser extends AbstractEntity
      */
     protected int $status = self::STATUS_NONE;
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 65535})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 65535]])]
     protected string $comments = '';
 
-    /**
-     * @Extbase\Validate("StringLength", options={"maximum": 8})
-     */
+    #[Extbase\Validate(['validator' => 'StringLength', 'options' => ['maximum' => 8]])]
     protected string $membershipNumber = '';
 
     public function __construct()
