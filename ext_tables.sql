@@ -15,5 +15,5 @@ CREATE TABLE fe_users
 	comments                   text,
 	department                 varchar(128) DEFAULT '' NOT NULL,
 	vat_in                     varchar(15)  DEFAULT '' NOT NULL,
-	membership_number          varchar(8)  DEFAULT '' NOT NULL
+	membership_number          varchar(8)   DEFAULT '' NOT NULL
 );
