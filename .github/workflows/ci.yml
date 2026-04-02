@@ -97,45 +97,13 @@ jobs:
         command:
           - "composer:normalize"
           - "php:cs-fixer"
+          - "php:rector"
           - "php:sniff"
           - "php:stan"
           - "xliff:lint"
           - "yaml:lint"
         php-version:
           - "8.3"
-  rector:
-    name: Rector
-    runs-on: ubuntu-24.04
-    needs: [ php-lint ]
-    timeout-minutes: 5
-    strategy:
-      matrix:
-        php-version:
-          - "8.3"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "${{ matrix.php-version }}"
-          ini-file: development
-          coverage: none
-          tools: composer:v2
-      - name: Show Composer version
-        run: composer --version
-      - name: Show the Composer configuration
-        run: composer config --global --list
-      - name: Cache dependencies installed with composer
-        uses: actions/cache@v5
-        with:
-          key: "php${{ matrix.php-version }}-composer-${{ hashFiles('**/composer.json') }}"
-          path: ~/.cache/composer
-          restore-keys: "php${{ matrix.php-version }}-composer-\n"
-      - name: Install Composer dependencies
-        run: "composer update --no-progress"
-      - name: Run Rector
-        run: ".Build/vendor/bin/rector --config=./Build/rector/config.php --dry-run --no-progress-bar"
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-24.04
