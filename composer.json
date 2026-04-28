@@ -140,11 +140,11 @@
 		"check:tests:create-directories": "mkdir -p .Build/public/typo3temp/var/tests",
 		"check:tests:functional": [
 			"@check:tests:create-directories",
-			"find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo \"Running functional test suite {}\"; .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml {}';"
+			"phpunit -c Build/phpunit/FunctionalTests.xml"
 		],
 		"check:tests:unit": [
 			"@check:tests:create-directories",
-			"phpunit -c Build/phpunit/UnitTests.xml Tests/Unit"
+			"phpunit -c Build/phpunit/UnitTests.xml"
 		],
 		"check:xliff:lint": "php Build/bin/console lint:xliff Resources/Private/Language",
 		"check:yaml:lint": "find . ! -path '*.Build/*' \\( -name '*.yaml' -o -name '*.yml' \\) | xargs -r php ./.Build/bin/yaml-lint",
