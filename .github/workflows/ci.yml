@@ -196,6 +196,10 @@ jobs:
             php-version: "8.4"
             dbms: "mysql"
             composer-dependencies: Max
+          - typo3-version: "12.4"
+            php-version: "8.4"
+            dbms: "postgres"
+            composer-dependencies: Max
   documentation:
     name: Documentation
     runs-on: ubuntu-24.04
