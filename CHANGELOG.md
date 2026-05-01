@@ -23,6 +23,9 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- Fix `FrontendUserRepository::findBySearchTermInBackendMode()` with Postgres
+  (#977)
+
 ## 6.7.1: Cleanup
 
 ### Changed

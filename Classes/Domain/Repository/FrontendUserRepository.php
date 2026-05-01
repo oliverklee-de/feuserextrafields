@@ -15,6 +15,15 @@ class FrontendUserRepository extends Repository implements DirectPersistInterfac
 {
     use DirectPersistTrait;
 
+    private const SEARCH_FIELDS = [
+        'username',
+        'name',
+        'firstName',
+        'lastName',
+        'email',
+        'company',
+    ];
+
     public function findOneByUsername(string $username): ?FrontendUser
     {
         if ($username === '') {
@@ -55,18 +64,15 @@ class FrontendUserRepository extends Repository implements DirectPersistInterfac
             ->setRespectStoragePage(false)
             ->setIgnoreEnableFields(true);
 
-        $escapedSearchTerm = \addcslashes($searchTerm, '_%');
-        $query->matching(
-            $query->logicalOr(
-                $query->equals('uid', $searchTerm),
-                $query->like('username', '%' . $escapedSearchTerm . '%'),
-                $query->like('name', '%' . $escapedSearchTerm . '%'),
-                $query->like('firstName', '%' . $escapedSearchTerm . '%'),
-                $query->like('lastName', '%' . $escapedSearchTerm . '%'),
-                $query->like('email', '%' . $escapedSearchTerm . '%'),
-                $query->like('company', '%' . $escapedSearchTerm . '%'),
-            ),
-        );
+        $matchers = [];
+        if (\preg_match('/^\d+$/', $searchTerm) === 1) {
+            $matchers[] = $query->equals('uid', (int)$searchTerm);
+        }
+        $escapedSearchTerm = '%' . \addcslashes($searchTerm, '_%') . '%';
+        foreach (self::SEARCH_FIELDS as $field) {
+            $matchers[] = $query->like($field, $escapedSearchTerm);
+        }
+        $query->matching($query->logicalOr(...$matchers));
 
         return $query->execute();
     }
