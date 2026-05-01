@@ -23,6 +23,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- Make the date of birth field unsigned (#975)
 - Fix `FrontendUserRepository::findBySearchTermInBackendMode()` with Postgres
   (#977)
 
