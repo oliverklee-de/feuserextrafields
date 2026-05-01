@@ -16,7 +16,7 @@ class FrontendUserGroupRepository extends Repository implements DirectPersistInt
     use DirectPersistTrait;
 
     /**
-     * @param int[] $uids
+     * @param array<int> $uids
      *
      * @return QueryResultInterface<FrontendUserGroup>
      */
