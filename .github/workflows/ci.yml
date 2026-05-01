@@ -170,24 +170,28 @@ jobs:
         include:
           - typo3-version: "12.4"
             php-version: "8.1"
-            dbms: "mysql"
+            dbms: "sqlite"
             composer-dependencies: Min
           - typo3-version: "12.4"
             php-version: "8.1"
-            dbms: "mysql"
+            dbms: "sqlite"
             composer-dependencies: Max
           - typo3-version: "12.4"
             php-version: "8.3"
-            dbms: "mysql"
+            dbms: "sqlite"
             composer-dependencies: Min
           - typo3-version: "12.4"
             php-version: "8.3"
-            dbms: "mysql"
+            dbms: "sqlite"
             composer-dependencies: Max
           #          - typo3-version: "12.4"
           #            php-version: "8.4"
-          #            dbms: "mysql"
+          #            dbms: "sqlite"
           #            composer-dependencies: Min
+          - typo3-version: "12.4"
+            php-version: "8.4"
+            dbms: "sqlite"
+            composer-dependencies: Max
           - typo3-version: "12.4"
             php-version: "8.4"
             dbms: "mysql"
