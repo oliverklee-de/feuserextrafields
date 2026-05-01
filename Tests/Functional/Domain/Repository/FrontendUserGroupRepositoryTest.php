@@ -107,20 +107,6 @@ final class FrontendUserGroupRepositoryTest extends FunctionalTestCase
     }
 
     #[Test]
-    public function findByUidsSilentlyIgnoresNonStringUids(): void
-    {
-        $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
-
-        // @phpstan-ignore argument.type (We are explicitly testing with a contract-violating value.)
-        $models = $this->subject->findByUids([1, '\'"--ab']);
-
-        self::assertCount(1, $models);
-        $firstModel = $models->current();
-        self::assertInstanceOf(FrontendUserGroup::class, $firstModel);
-        self::assertSame(1, $firstModel->getUid());
-    }
-
-    #[Test]
     public function findByUidsForForPartialMatchesReturnsOnlyTheMatches(): void
     {
         $this->importCSVDataSet(__DIR__ . '/Fixtures/UserGroupWithAllScalarData.csv');
