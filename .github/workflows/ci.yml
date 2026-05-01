@@ -190,8 +190,8 @@ jobs:
           #            composer-dependencies: Min
           - typo3-version: "12.4"
             php-version: "8.4"
-            composer-dependencies: Max
             dbms: "mysql"
+            composer-dependencies: Max
   documentation:
     name: Documentation
     runs-on: ubuntu-24.04
