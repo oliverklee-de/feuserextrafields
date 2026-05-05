@@ -183,7 +183,7 @@ class FrontendUser extends AbstractEntity
     /**
      * Sets the password hash.
      */
-    public function setPassword(string $password): void
+    public function setPassword(#[\SensitiveParameter] string $password): void
     {
         $this->password = $password;
     }
