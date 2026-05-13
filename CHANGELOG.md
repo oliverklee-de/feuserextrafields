@@ -9,10 +9,18 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+## 7.0.0: Drop support for TYPO3 11LTS and PHP < 8.1
+
+### Changed
+
 - !!! Make all added fields excludefields (#781)
 - Use PHP Attributes für Extbase model validations (#951)
-
-### Deprecated
 
 ### Removed
 

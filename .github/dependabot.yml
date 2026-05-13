@@ -6,7 +6,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    milestone: 21
+    milestone: 22
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -25,4 +25,4 @@ updates:
       - dependency-name: "symfony/yaml"
       - dependency-name: "typo3/cms-*"
     versioning-strategy: "increase"
-    milestone: 21
+    milestone: 22
