@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Add support for TYPO3 13LTS (#996)
+- Add support for TYPO3 13LTS (#996, #998)
 
 ### Changed
 
