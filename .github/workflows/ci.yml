@@ -40,12 +40,6 @@ jobs:
             php-version: "8.1"
             composer-dependencies: Max
           - typo3-version: "12.4"
-            php-version: "8.2"
-            composer-dependencies: Max
-          - typo3-version: "12.4"
-            php-version: "8.3"
-            composer-dependencies: Max
-          - typo3-version: "12.4"
             php-version: "8.4"
             composer-dependencies: Max
   code-quality:
