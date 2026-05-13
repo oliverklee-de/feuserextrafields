@@ -1,6 +1,7 @@
 # Extra fields for TYPO3 frontend users
 
 [![TYPO3 V12](https://img.shields.io/badge/TYPO3-12-orange.svg)](https://get.typo3.org/version/12)
+[![TYPO3 V13](https://img.shields.io/badge/TYPO3-13-orange.svg)](https://get.typo3.org/version/13)
 [![License](https://img.shields.io/github/license/oliverklee-de/feuserextrafields)](https://packagist.org/packages/oliverklee/feuserextrafields)
 [![GitHub CI status](https://github.com/oliverklee-de/feuserextrafields/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/oliverklee-de/feuserextrafields/actions)
 [![Coverage Status](https://coveralls.io/repos/github/oliverklee-de/feuserextrafields/badge.svg?branch=main)](https://coveralls.io/github/oliverklee-de/feuserextrafields?branch=main)
