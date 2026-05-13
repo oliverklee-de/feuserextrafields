@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- !!! Make all added fields excludefields (#781)
 - Use PHP Attributes für Extbase model validations (#951)
 
 ### Deprecated
