@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace OliverKlee\FeUserExtraFields\Tests\Unit\Domain\Model;
 
 use OliverKlee\FeUserExtraFields\Domain\Model\Gender;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
-/**
- * @covers OliverKlee\FeUserExtraFields\Domain\Model\Gender
- */
+#[CoversClass(Gender::class)]
 final class GenderTest extends UnitTestCase
 {
     #[Test]
