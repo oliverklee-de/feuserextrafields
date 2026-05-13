@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Add support for PHP 8.5 (#1002)
 - Add support for TYPO3 13LTS (#996, #998, #999, #1000, #1001)
 
 ### Changed
