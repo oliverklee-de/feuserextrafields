@@ -183,17 +183,9 @@ jobs:
             dbms: "sqlite"
             composer-dependencies: Max
           - typo3-version: "12.4"
-            php-version: "8.3"
+            php-version: "8.4"
             dbms: "sqlite"
             composer-dependencies: Min
-          - typo3-version: "12.4"
-            php-version: "8.3"
-            dbms: "sqlite"
-            composer-dependencies: Max
-          #          - typo3-version: "12.4"
-          #            php-version: "8.4"
-          #            dbms: "sqlite"
-          #            composer-dependencies: Min
           - typo3-version: "12.4"
             php-version: "8.4"
             dbms: "sqlite"
