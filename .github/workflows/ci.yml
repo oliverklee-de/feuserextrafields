@@ -30,6 +30,7 @@ jobs:
         run: |
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
+          echo "Current dir: $PWD"
           ls -la
       - name: Install composer dependencies
         run: |
@@ -38,6 +39,7 @@ jobs:
         run: |
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
+          echo "Current dir: $PWD"
           ls -la
           echo "Cache dir: .cache/"
           ls -la .cache/
@@ -76,6 +78,7 @@ jobs:
         run: |
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
+          echo "Current dir: $PWD"
           ls -la
       - name: Install composer dependencies
         run: |
@@ -84,6 +87,7 @@ jobs:
         run: |
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
+          echo "Current dir: $PWD"
           ls -la
           echo "Cache dir: .cache/"
           ls -la .cache/
