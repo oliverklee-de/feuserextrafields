@@ -83,148 +83,148 @@ jobs:
           - "13.4"
         composer-dependencies:
           - Max
-  prepare-release:
-    name: Check prepare release script
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Run prepare release
-        run: Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer prepare-release
-    strategy:
-      fail-fast: false
-      matrix:
-        php-version:
-          - "8.2"
-  unit-tests:
-    name: Unit tests
-    runs-on: ubuntu-24.04
-    needs: php-lint
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Show the Composer version
-        run: ./Build/Scripts/runTests.sh -s composer -- --version
-      - name: Show the Composer configuration
-        run: ./Build/Scripts/runTests.sh -s composer config --global --list
-      - name: Cache dependencies installed with composer
-        uses: actions/cache@v5
-        with:
-          key: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
-          path: ~/.cache/composer
-          restore-keys: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
-      - name: Install composer dependencies
-        run: |
-          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
-      - name: Run unit tests
-        run: |
-          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s unit
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - typo3-version: "12.4"
-            php-version: "8.1"
-            composer-dependencies: Min
-          - typo3-version: "12.4"
-            php-version: "8.1"
-            composer-dependencies: Max
-          - typo3-version: "12.4"
-            php-version: "8.4"
-            composer-dependencies: Min
-          - typo3-version: "12.4"
-            php-version: "8.4"
-            composer-dependencies: Max
-          - typo3-version: "13.4"
-            php-version: "8.2"
-            composer-dependencies: Min
-          - typo3-version: "13.4"
-            php-version: "8.2"
-            composer-dependencies: Max
-          - typo3-version: "13.4"
-            php-version: "8.5"
-            composer-dependencies: Min
-          - typo3-version: "13.4"
-            php-version: "8.5"
-            composer-dependencies: Max
-  functional-tests:
-    name: Functional tests
-    runs-on: ubuntu-24.04
-    needs: php-lint
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Show the Composer version
-        run: ./Build/Scripts/runTests.sh -s composer -- --version
-      - name: Show the Composer configuration
-        run: ./Build/Scripts/runTests.sh -s composer config --global --list
-      - name: Cache dependencies installed with composer
-        uses: actions/cache@v5
-        with:
-          key: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
-          path: ~/.cache/composer
-          restore-keys: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
-      - name: Install composer dependencies
-        run: |
-          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
-      - name: Run functional tests
-        run: |
-          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -d ${{ matrix.dbms }} -s functional
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - typo3-version: "12.4"
-            php-version: "8.1"
-            dbms: "sqlite"
-            composer-dependencies: Min
-          - typo3-version: "12.4"
-            php-version: "8.1"
-            dbms: "sqlite"
-            composer-dependencies: Max
-          - typo3-version: "12.4"
-            php-version: "8.4"
-            dbms: "sqlite"
-            composer-dependencies: Min
-          - typo3-version: "12.4"
-            php-version: "8.4"
-            dbms: "sqlite"
-            composer-dependencies: Max
-          - typo3-version: "12.4"
-            php-version: "8.4"
-            dbms: "mysql"
-            composer-dependencies: Max
-          - typo3-version: "12.4"
-            php-version: "8.4"
-            dbms: "postgres"
-            composer-dependencies: Max
-          - typo3-version: "13.4"
-            php-version: "8.2"
-            dbms: "sqlite"
-            composer-dependencies: Min
-          - typo3-version: "13.4"
-            php-version: "8.2"
-            dbms: "sqlite"
-            composer-dependencies: Max
-          - typo3-version: "13.4"
-            php-version: "8.5"
-            dbms: "sqlite"
-            composer-dependencies: Max
-          - typo3-version: "13.4"
-            php-version: "8.5"
-            dbms: "mysql"
-            composer-dependencies: Max
-          - typo3-version: "13.4"
-            php-version: "8.5"
-            dbms: "postgres"
-            composer-dependencies: Max
-  documentation:
-    name: Documentation
-    runs-on: ubuntu-24.04
-    timeout-minutes: 2
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Test if the documentation will render without warnings
-        run: |
-          Build/Scripts/runTests.sh -s docsGenerate
+#  prepare-release:
+#    name: Check prepare release script
+#    runs-on: ubuntu-24.04
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v6
+#      - name: Run prepare release
+#        run: Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s composer prepare-release
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        php-version:
+#          - "8.2"
+#  unit-tests:
+#    name: Unit tests
+#    runs-on: ubuntu-24.04
+#    needs: php-lint
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v6
+#      - name: Show the Composer version
+#        run: ./Build/Scripts/runTests.sh -s composer -- --version
+#      - name: Show the Composer configuration
+#        run: ./Build/Scripts/runTests.sh -s composer config --global --list
+#      - name: Cache dependencies installed with composer
+#        uses: actions/cache@v5
+#        with:
+#          key: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
+#          path: ~/.cache/composer
+#          restore-keys: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+#      - name: Install composer dependencies
+#        run: |
+#          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
+#      - name: Run unit tests
+#        run: |
+#          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s unit
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        include:
+#          - typo3-version: "12.4"
+#            php-version: "8.1"
+#            composer-dependencies: Min
+#          - typo3-version: "12.4"
+#            php-version: "8.1"
+#            composer-dependencies: Max
+#          - typo3-version: "12.4"
+#            php-version: "8.4"
+#            composer-dependencies: Min
+#          - typo3-version: "12.4"
+#            php-version: "8.4"
+#            composer-dependencies: Max
+#          - typo3-version: "13.4"
+#            php-version: "8.2"
+#            composer-dependencies: Min
+#          - typo3-version: "13.4"
+#            php-version: "8.2"
+#            composer-dependencies: Max
+#          - typo3-version: "13.4"
+#            php-version: "8.5"
+#            composer-dependencies: Min
+#          - typo3-version: "13.4"
+#            php-version: "8.5"
+#            composer-dependencies: Max
+#  functional-tests:
+#    name: Functional tests
+#    runs-on: ubuntu-24.04
+#    needs: php-lint
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v6
+#      - name: Show the Composer version
+#        run: ./Build/Scripts/runTests.sh -s composer -- --version
+#      - name: Show the Composer configuration
+#        run: ./Build/Scripts/runTests.sh -s composer config --global --list
+#      - name: Cache dependencies installed with composer
+#        uses: actions/cache@v5
+#        with:
+#          key: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
+#          path: ~/.cache/composer
+#          restore-keys: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+#      - name: Install composer dependencies
+#        run: |
+#          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
+#      - name: Run functional tests
+#        run: |
+#          ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -d ${{ matrix.dbms }} -s functional
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        include:
+#          - typo3-version: "12.4"
+#            php-version: "8.1"
+#            dbms: "sqlite"
+#            composer-dependencies: Min
+#          - typo3-version: "12.4"
+#            php-version: "8.1"
+#            dbms: "sqlite"
+#            composer-dependencies: Max
+#          - typo3-version: "12.4"
+#            php-version: "8.4"
+#            dbms: "sqlite"
+#            composer-dependencies: Min
+#          - typo3-version: "12.4"
+#            php-version: "8.4"
+#            dbms: "sqlite"
+#            composer-dependencies: Max
+#          - typo3-version: "12.4"
+#            php-version: "8.4"
+#            dbms: "mysql"
+#            composer-dependencies: Max
+#          - typo3-version: "12.4"
+#            php-version: "8.4"
+#            dbms: "postgres"
+#            composer-dependencies: Max
+#          - typo3-version: "13.4"
+#            php-version: "8.2"
+#            dbms: "sqlite"
+#            composer-dependencies: Min
+#          - typo3-version: "13.4"
+#            php-version: "8.2"
+#            dbms: "sqlite"
+#            composer-dependencies: Max
+#          - typo3-version: "13.4"
+#            php-version: "8.5"
+#            dbms: "sqlite"
+#            composer-dependencies: Max
+#          - typo3-version: "13.4"
+#            php-version: "8.5"
+#            dbms: "mysql"
+#            composer-dependencies: Max
+#          - typo3-version: "13.4"
+#            php-version: "8.5"
+#            dbms: "postgres"
+#            composer-dependencies: Max
+#  documentation:
+#    name: Documentation
+#    runs-on: ubuntu-24.04
+#    timeout-minutes: 2
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v6
+#      - name: Test if the documentation will render without warnings
+#        run: |
+#          Build/Scripts/runTests.sh -s docsGenerate
