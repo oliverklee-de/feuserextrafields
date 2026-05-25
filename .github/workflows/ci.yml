@@ -26,9 +26,23 @@ jobs:
           key: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           path: ~/.cache/composer
           restore-keys: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
+      - name: Debug caching
+        run: |
+          echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
+          echo "Home dir: $HOME"
+          ls -la
+          echo "Cache dir: ~/.cache/composer"
+          ls -la ~/.cache/composer
       - name: Install composer dependencies
         run: |
           ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
+      - name: Debug caching
+        run: |
+          echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
+          echo "Home dir: $HOME"
+          ls -la
+          echo "Cache dir: ~/.cache/composer"
+          ls -la ~/.cache/composer
       - name: Lint PHP
         run: |
           Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -s lintPhp
@@ -60,7 +74,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-\n"
       - name: Debug caching
         run: |
-          echo "Cache key: ${{ matrix.php-version }}-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-${{ hashFiles('**/composer.json') }}"
+          echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
           ls -la
           echo "Cache dir: ~/.cache/composer"
@@ -70,7 +84,7 @@ jobs:
           ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
       - name: Debug caching
         run: |
-          echo "Cache key: ${{ matrix.php-version }}-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-${{ hashFiles('**/composer.json') }}"
+          echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
           ls -la
           echo "Cache dir: ~/.cache/composer"
