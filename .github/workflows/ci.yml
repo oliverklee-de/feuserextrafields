@@ -31,8 +31,6 @@ jobs:
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
           ls -la
-          echo "Cache dir: ~/.cache/composer"
-          ls -la ~/.cache/composer
       - name: Install composer dependencies
         run: |
           ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
@@ -41,6 +39,8 @@ jobs:
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
           ls -la
+          echo "Cache dir: ~/.cache/"
+          ls -la ~/.cache/
           echo "Cache dir: ~/.cache/composer"
           ls -la ~/.cache/composer
       - name: Lint PHP
@@ -77,8 +77,6 @@ jobs:
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
           ls -la
-          echo "Cache dir: ~/.cache/composer"
-          ls -la ~/.cache/composer
       - name: Install composer dependencies
         run: |
           ./Build/Scripts/runTests.sh -p ${{ matrix.php-version }} -t ${{matrix.typo3-version}} -s composerUpdate${{matrix.composer-dependencies}}
@@ -87,6 +85,8 @@ jobs:
           echo "Cache key: php-${{ matrix.php-version }}-typo3-${{ matrix.typo3-version }}-${{ matrix.composer-dependencies }}-composer-${{ hashFiles('**/composer.json') }}"
           echo "Home dir: $HOME"
           ls -la
+          echo "Cache dir: ~/.cache/"
+          ls -la ~/.cache/
           echo "Cache dir: ~/.cache/composer"
           ls -la ~/.cache/composer
       - name: Run code quality checks
