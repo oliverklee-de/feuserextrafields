@@ -21,15 +21,10 @@ return RectorConfig::configure()
         __DIR__ . '/../../Tests/',
         __DIR__ . '/../../ext_emconf.php',
     ])
-    ->withPhpVersion(PhpVersion::PHP_81)
     ->withPhpSets()
+    ->withComposerBased(phpunit: true)
     ->withSets([
         // Rector sets
-
-        LevelSetList::UP_TO_PHP_81,
-        // LevelSetList::UP_TO_PHP_82,
-        // LevelSetList::UP_TO_PHP_83,
-        // LevelSetList::UP_TO_PHP_84,
 
         // SetList::CODE_QUALITY,
         // SetList::CODING_STYLE,
@@ -40,12 +35,6 @@ return RectorConfig::configure()
         // SetList::PRIVATIZATION,
         // SetList::STRICT_BOOLEANS,
         SetList::TYPE_DECLARATION,
-
-        // PHPUnit sets
-
-        PHPUnitSetList::PHPUNIT_100,
-        // PHPUnitSetList::PHPUNIT_110,
-        // PHPUnitSetList::PHPUNIT_CODE_QUALITY,
 
         // TYPO3 Sets
         // https://github.com/sabbelasichon/typo3-rector/blob/main/src/Set/Typo3LevelSetList.php
