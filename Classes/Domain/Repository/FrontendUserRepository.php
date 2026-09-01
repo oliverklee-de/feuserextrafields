@@ -65,10 +65,10 @@ class FrontendUserRepository extends Repository implements DirectPersistInterfac
             ->setIgnoreEnableFields(true);
 
         $matchers = [];
-        if (\preg_match('/^\d+$/', $searchTerm) === 1) {
+        if (preg_match('/^\d+$/', $searchTerm) === 1) {
             $matchers[] = $query->equals('uid', (int)$searchTerm);
         }
-        $escapedSearchTerm = '%' . \addcslashes($searchTerm, '_%') . '%';
+        $escapedSearchTerm = '%' . addcslashes($searchTerm, '_%') . '%';
         foreach (self::SEARCH_FIELDS as $field) {
             $matchers[] = $query->like($field, $escapedSearchTerm);
         }
