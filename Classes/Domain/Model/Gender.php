@@ -56,6 +56,6 @@ final class Gender
 
     public static function isValidGender(?int $gender): bool
     {
-        return \in_array($gender, self::definedGenders(), true);
+        return in_array($gender, self::definedGenders(), true);
     }
 }

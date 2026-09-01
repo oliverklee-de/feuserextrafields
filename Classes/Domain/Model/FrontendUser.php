@@ -532,7 +532,7 @@ class FrontendUser extends AbstractEntity
 
     public static function isValidStatus(int $gender): bool
     {
-        return \in_array($gender, self::VALID_STATUSES, true);
+        return in_array($gender, self::VALID_STATUSES, true);
     }
 
     /**
@@ -541,7 +541,7 @@ class FrontendUser extends AbstractEntity
     public function getStatus(): int
     {
         $status = $this->status;
-        \assert(\in_array($status, self::VALID_STATUSES, true));
+        assert(in_array($status, self::VALID_STATUSES, true));
 
         return $status;
     }
