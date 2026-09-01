@@ -540,10 +540,7 @@ class FrontendUser extends AbstractEntity
      */
     public function getStatus(): int
     {
-        $status = $this->status;
-        assert(in_array($status, self::VALID_STATUSES, true));
-
-        return $status;
+        return $this->status;
     }
 
     /**
