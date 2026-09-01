@@ -51,8 +51,6 @@ return RectorConfig::configure()
         Typo3Option::PHPSTAN_FOR_RECTOR_PATH,
     ])
     ->withRules([
-        AddVoidReturnTypeWhereNoReturnRector::class,
-        ConvertImplicitVariablesToExplicitGlobalsRector::class,
     ])
     ->withImportNames(true, true, false)
     ->withConfiguredRule(ExtEmConfRector::class, [
