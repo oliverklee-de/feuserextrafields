@@ -35,6 +35,7 @@
 		"phpstan/phpstan-strict-rules": "1.6.2 || 2.0.12",
 		"phpunit/phpcov": "9.0.2",
 		"phpunit/phpunit": "10.5.64",
+		"rector/rector": "1.2.10 || 2.6.3",
 		"rector/type-perfect": "1.0.0 || 2.2.0",
 		"saschaegerer/phpstan-typo3": "1.10.2 || 2.2.0 || 3.1.0",
 		"squizlabs/php_codesniffer": "4.0.4",
