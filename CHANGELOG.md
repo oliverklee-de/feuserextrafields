@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- Require the latest security release of TYPO3 13LTS (#1020)
+- Require the latest security release of TYPO3 13LTS (#1020, #1056)
 
 ### Deprecated
 
