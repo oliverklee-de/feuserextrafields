@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="messages" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="crdate">
+        <source>Creation date</source>
+        <target>crwdns333270:0crwdne333270:0</target>
+      </trans-unit>
+      <trans-unit id="tstamp">
+        <source>Change date</source>
+        <target>crwdns333272:0crwdne333272:0</target>
+      </trans-unit>
+      <trans-unit id="full_salutation">
+        <source>Full salutation (possibly with name)</source>
+        <target>crwdns303248:0crwdne303248:0</target>
+      </trans-unit>
+      <trans-unit id="gender">
+        <source>Gender</source>
+        <target>crwdns303250:0crwdne303250:0</target>
+      </trans-unit>
+      <trans-unit id="gender.99">
+        <source>(none provided)</source>
+        <target>crwdns303252:0crwdne303252:0</target>
+      </trans-unit>
+      <trans-unit id="gender.0">
+        <source>Mr.</source>
+        <target>crwdns303254:0crwdne303254:0</target>
+      </trans-unit>
+      <trans-unit id="gender.1">
+        <source>Mrs.</source>
+        <target>crwdns303256:0crwdne303256:0</target>
+      </trans-unit>
+      <trans-unit id="gender.2">
+        <source>diverse</source>
+        <target>crwdns303258:0crwdne303258:0</target>
+      </trans-unit>
+      <trans-unit id="dateOfBirth">
+        <source>Birth date</source>
+        <target>crwdns303260:0crwdne303260:0</target>
+      </trans-unit>
+      <trans-unit id="zone">
+        <source>State/province</source>
+        <target>crwdns303262:0crwdne303262:0</target>
+      </trans-unit>
+      <trans-unit id="privacy">
+        <source>Privacy agreement</source>
+        <target>crwdns303264:0crwdne303264:0</target>
+      </trans-unit>
+      <trans-unit id="privacyDateOfAcceptance">
+        <source>Privacy agreement acknowledged at</source>
+        <target>crwdns336950:0crwdne336950:0</target>
+      </trans-unit>
+      <trans-unit id="terms_acknowledged">
+        <source>Terms acknowledged</source>
+        <target>crwdns333268:0crwdne333268:0</target>
+      </trans-unit>
+      <trans-unit id="termsDateOfAcceptance">
+        <source>Terms acknowledged at</source>
+        <target>crwdns336948:0crwdne336948:0</target>
+      </trans-unit>
+      <trans-unit id="status">
+        <source>Job status</source>
+        <target>crwdns303266:0crwdne303266:0</target>
+      </trans-unit>
+      <trans-unit id="status.1">
+        <source>Student</source>
+        <target>crwdns303268:0crwdne303268:0</target>
+      </trans-unit>
+      <trans-unit id="status.2">
+        <source>Job seeking (full time)</source>
+        <target>crwdns303270:0crwdne303270:0</target>
+      </trans-unit>
+      <trans-unit id="status.3">
+        <source>Working</source>
+        <target>crwdns303272:0crwdne303272:0</target>
+      </trans-unit>
+      <trans-unit id="status.4">
+        <source>Retired</source>
+        <target>crwdns303274:0crwdne303274:0</target>
+      </trans-unit>
+      <trans-unit id="status.5">
+        <source>Job seeking (part time)</source>
+        <target>crwdns303276:0crwdne303276:0</target>
+      </trans-unit>
+      <trans-unit id="comments">
+        <source>Comments</source>
+        <target>crwdns303278:0crwdne303278:0</target>
+      </trans-unit>
+      <trans-unit id="vatIn">
+        <source>VAT identification number (VATIN)</source>
+        <target>crwdns336952:0crwdne336952:0</target>
+      </trans-unit>
+      <trans-unit id="department">
+        <source>Department</source>
+        <target>crwdns374406:0crwdne374406:0</target>
+      </trans-unit>
+      <trans-unit id="membership_number">
+        <source>Membership number</source>
+        <target>crwdns390774:0crwdne390774:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
